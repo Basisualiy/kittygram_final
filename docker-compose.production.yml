@@ -15,7 +15,7 @@ services:
     env_file: .env
     volumes:
       - static:/static
-      - media:/bacend/media
+      - media:/backend/media
   frontend:
     env_file: .env
     image: vasiliyyakovlev/kittygram_frontend
