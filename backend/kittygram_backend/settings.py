@@ -95,7 +95,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/backend_static/'
+STATIC_URL = '/backend_static/'
 STATIC_ROOT = '/static/backend_static'
 
 MEDIA_URL = '/media/'
