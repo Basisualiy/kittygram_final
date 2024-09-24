@@ -15,7 +15,7 @@ services:
     image: vasiliyyakovlev/kittygram_backend
     env_file: .env
     volumes:
-      - static:/static
+      - static:/bacend_static
       - media:/backend/media
     depends_on:
       - db
