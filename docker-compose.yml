@@ -10,12 +10,15 @@ services:
     image: postgres:13
     volumes:
       - pg_data:/var/lib/postgresql/data
+    env_file: .env
   backend:
     image: vasiliyyakovlev/kittygram_backend
     env_file: .env
     volumes:
-      - static:/static
-      - media:/bacend/media
+      - static:/backend_static
+      - media:/backend/media
+    depends_on:
+      - db
   frontend:
     env_file: .env
     image: vasiliyyakovlev/kittygram_frontend
@@ -30,3 +33,6 @@ services:
     volumes:
       - static:/static
       - media:/media
+    depends_on:
+      - backend
+      - frontend

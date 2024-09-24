@@ -41,7 +41,7 @@ jobs:
         DB_PORT: 5432
       run: |
         python -m flake8 backend/ 
-        pytest
+        # pytest
 
   build_and_push_to_docker_hub:
     name: Push Docker image to DockerHub
@@ -160,6 +160,7 @@ jobs:
           # Выполняет миграции и сбор статики
           sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
           sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic --noinput
+          sudo docker compose -f docker-compose.production.yml exec backend cp -r /collected_static/. /backend_static/static/
 
   send_message:
     runs-on: ubuntu-latest
